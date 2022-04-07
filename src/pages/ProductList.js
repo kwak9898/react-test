@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import CommonTable from "../components/CommonTable";
 import CommonTableColumn from "../components/CommonTableColumn";
 import CommonTableRow from "../components/CommonTableRow";
@@ -13,14 +14,18 @@ const ProductList = props => {
 
   return (
     <>
-      <CommonTable headersName={["글번호", "제목", "등록일", "조회수"]}>
+      <CommonTable headersName={["제품번호", "아이디", "제품명", "가격"]}>
         {dataList
           ? dataList.map((item, index) => {
               return (
                 <CommonTableRow key={index}>
                   <CommonTableColumn>{item.no}</CommonTableColumn>
                   <CommonTableColumn>{item.id}</CommonTableColumn>
-                  <CommonTableColumn>{item.productName}</CommonTableColumn>
+                  <CommonTableColumn>
+                    <Link to={`/productView/${item.no}`}>
+                      {item.productName}
+                    </Link>
+                  </CommonTableColumn>
                   <CommonTableColumn>{item.price}</CommonTableColumn>
                 </CommonTableRow>
               );
