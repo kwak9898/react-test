@@ -42,8 +42,6 @@ class ProductMain extends Component {
       price: this.state.price,
     });
     this.setState({ productList: newArr });
-
-    console.log(newArr);
   };
 
   render() {
