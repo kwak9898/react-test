@@ -51,7 +51,7 @@ class ProductMain extends Component {
 
   render() {
     return (
-      <div>
+      <div className="poduct-name">
         <ProductList productList={this.state.productList} />
         <Form
           onProductNameChange={this.productNameChangeHandler}
