@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ProductList from "./ProductList";
+import { productList } from "../Data";
 import Form from "../components/Form";
 
 class ProductMain extends Component {
@@ -9,10 +10,10 @@ class ProductMain extends Component {
     productName: "",
     productId: "",
     productPrice: "",
+    productList: productList,
   };
 
   productNameChangeHandler = e => {
-    // productName 필드 변경 될때 호출
     this.setState({
       ...this.state,
       productName: e.target.value,
@@ -20,7 +21,6 @@ class ProductMain extends Component {
   };
 
   productIdChangeHandler = e => {
-    // productId 필드 변경 될때 호출
     this.setState({
       ...this.state,
       productId: e.target.value,
@@ -28,17 +28,26 @@ class ProductMain extends Component {
   };
 
   productPriceChangeHandler = e => {
-    // productPrice 필드 변경 될때 호출
     this.setState({
       ...this.state,
       productPrice: e.target.value,
     });
   };
 
+  onAddHandler = () => {
+    const newArr = this.state.productList.concat({
+      no: this.state.productList.length + 1,
+      id: this.state.id,
+      productName: this.state.productName,
+      price: this.state.price,
+    });
+    this.setState({ productList: newArr });
+  };
+
   render() {
     return (
       <>
-        <ProductList />
+        <ProductList productList={this.state.productList} />
         <Form
           onProductNameChange={this.productNameChangeHandler}
           onProductIdChange={this.productIdChangeHandler}
@@ -46,6 +55,7 @@ class ProductMain extends Component {
           newProductName={this.state.productName}
           newProductId={this.state.productId}
           newProductPrice={this.state.productPrice}
+          onAdd={this.onAddHandler}
         />
       </>
     );
