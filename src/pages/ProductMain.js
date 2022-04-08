@@ -4,14 +4,18 @@ import { productList } from "../Data";
 import Form from "../components/Form";
 
 class ProductMain extends Component {
-  id = 6;
+  constructor(props) {
+    super(props);
 
-  state = {
-    id: "",
-    productName: "",
-    price: "",
-    productList: productList,
-  };
+    this.state = {
+      id: "",
+      productName: "",
+      price: "",
+      productList: productList,
+    };
+  }
+
+  id = 6;
 
   productNameChangeHandler = e => {
     this.setState({
@@ -35,18 +39,19 @@ class ProductMain extends Component {
   };
 
   onAddHandler = () => {
-    const newArr = this.state.productList.concat({
-      no: this.state.productList.length + 1,
-      id: this.state.id,
-      productName: this.state.productName,
-      price: this.state.price,
+    const test = this.state;
+    const newArr = test.productList.concat({
+      no: test.productList.length + 1,
+      id: test.id,
+      productName: test.productName,
+      price: test.price,
     });
     this.setState({ productList: newArr });
   };
 
   render() {
     return (
-      <>
+      <div>
         <ProductList productList={this.state.productList} />
         <Form
           onProductNameChange={this.productNameChangeHandler}
@@ -57,7 +62,7 @@ class ProductMain extends Component {
           newProductPrice={this.state.productPrice}
           onAdd={this.onAddHandler}
         />
-      </>
+      </div>
     );
   }
 }
