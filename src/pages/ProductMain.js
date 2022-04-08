@@ -18,7 +18,11 @@ class ProductMain extends Component {
     return (
       <>
         <ProductList />
-        <Form />
+        <Form
+          onProductNameChange={this.productNameChangeHandler}
+          onProductIdChange={this.productIdChangeHandler}
+          onProductPriceChange={this.productPriceChangeHandler}
+        />
       </>
     );
   }
