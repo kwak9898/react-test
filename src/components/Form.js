@@ -4,7 +4,7 @@ import "./Form.css";
 const Form = props => {
   return (
     <div className="form">
-      <label className="title" for="product-name">
+      <label className="title" htmlFor="product-name">
         제품명
       </label>
       <input
@@ -12,11 +12,11 @@ const Form = props => {
         id="product-name"
         onChange={props.onProductNameChange}
       />
-      <label className="title" for="product-id">
+      <label className="title" htmlFor="product-id">
         제품아이디
       </label>
       <input type="text" id="product-id" onChange={props.onProductIdChange} />
-      <label className="title" for="product-price">
+      <label className="title" htmlFor="product-price">
         가격
       </label>
       <input

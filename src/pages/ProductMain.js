@@ -7,9 +7,9 @@ class ProductMain extends Component {
   id = 6;
 
   state = {
+    id: "",
     productName: "",
-    productId: "",
-    productPrice: "",
+    price: "",
     productList: productList,
   };
 
@@ -42,6 +42,8 @@ class ProductMain extends Component {
       price: this.state.price,
     });
     this.setState({ productList: newArr });
+
+    console.log(newArr);
   };
 
   render() {
