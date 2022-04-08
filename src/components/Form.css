@@ -2,9 +2,14 @@
   display: flex;
 }
 
+.title {
+  font-size: 1.3rem;
+  padding: 20px;
+}
+
 .form input {
   flex: 1;
-  font-size: 1.25rem;
+  font-size: 1.12rem;
   outline: none;
   border: none;
   border-bottom: 1px solid #c5f6fa;
