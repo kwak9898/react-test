@@ -21,9 +21,7 @@ const ProductList = props => {
                 <CommonTableRow key={index}>
                   <CommonTableColumn>{item.no}</CommonTableColumn>
                   <CommonTableColumn>
-                    <Link to={`/productView/${item.no}`}>
-                      {item.productName}
-                    </Link>
+                    <Link to={`/item/${item.no}`}>{item.productName}</Link>
                   </CommonTableColumn>
                   <CommonTableColumn>{item.id}</CommonTableColumn>
                   <CommonTableColumn>{item.price}</CommonTableColumn>

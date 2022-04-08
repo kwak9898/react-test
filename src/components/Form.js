@@ -24,7 +24,9 @@ const Form = props => {
         id="product-price"
         onChange={props.onProductPriceChange}
       />
-      <div className="create-button">추가</div>
+      <div className="create-button" onClick={props.onAdd}>
+        추가
+      </div>
     </div>
   );
 };
