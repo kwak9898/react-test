@@ -24,12 +24,12 @@ const ProductView = ({ history, location, match }) => {
               <label>{data.no}</label>
             </div>
             <div className="product-view-row">
-              <label>아이디</label>
-              <label>{data.id}</label>
-            </div>
-            <div className="product-view-row">
               <label>제품</label>
               <label>{data.productName}</label>
+            </div>
+            <div className="product-view-row">
+              <label>제품 아이디</label>
+              <label>{data.id}</label>
             </div>
             <div className="product-view-row">
               <label>가격</label>
