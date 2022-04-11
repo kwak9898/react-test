@@ -58,8 +58,8 @@ const ProductMain = () => {
   const onCreate = () => {
     const product = {
       no: nextNo.current,
-      id,
       productName,
+      id,
       price,
     };
     setData([...data, product]);
