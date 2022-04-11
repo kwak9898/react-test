@@ -70,7 +70,6 @@ const ProductMain = () => {
     });
     nextNo.current += 1;
   };
-
   return (
     <>
       <ProductList productData={productData} />
