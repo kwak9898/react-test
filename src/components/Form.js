@@ -1,14 +1,7 @@
 import React from "react";
 import "./Form.css";
 
-const Form = ({
-  productNamevalue,
-  idValue,
-  priceValue,
-  onChange,
-  onCreate,
-  onKeyPress,
-}) => {
+const Form = ({ productName, id, price, onChange, onCreate }) => {
   return (
     <div className="form">
       <label className="title" htmlFor="product-name">
@@ -16,21 +9,29 @@ const Form = ({
       </label>
       <input
         type="text"
+        name="productName"
         id="product-name"
-        value={productNamevalue}
+        value={productName}
         onChange={onChange}
       />
       <label className="title" htmlFor="product-id">
         제품아이디
       </label>
-      <input type="text" id="product-id" value={idValue} onChange={onChange} />
+      <input
+        type="text"
+        name="id"
+        id="product-id"
+        value={id}
+        onChange={onChange}
+      />
       <label className="title" htmlFor="product-price">
         가격
       </label>
       <input
         type="text"
+        name="price"
         id="product-price"
-        value={priceValue}
+        value={price}
         onChange={onChange}
       />
       <div className="create-button" onClick={onCreate}>

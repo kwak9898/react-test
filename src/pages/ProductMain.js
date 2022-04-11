@@ -76,9 +76,9 @@ const ProductMain = () => {
     <>
       <ProductList productData={productData} />
       <Form
-        idValue={id}
-        productNamevalue={productName}
-        priceValue={price}
+        id={id}
+        productName={productName}
+        price={price}
         onChange={onChange}
         onCreate={onCreate}
       />
