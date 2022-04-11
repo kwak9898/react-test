@@ -1,82 +1,89 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import ProductList from "./ProductList";
 import { productData } from "../Data";
 import Form from "../components/Form";
 
-class ProductMain extends Component {
-  no = 6;
-
-  state = {
-    id: "",
+const ProductMain = () => {
+  const [input, setState] = useState({
     productName: "",
+    id: "",
     price: "",
-    productData: productData,
-  };
+  });
 
-  IdHandleChange = e => {
-    this.setState({
-      id: e.target.value,
+  const { productName, id, price } = input;
+
+  const onChange = e => {
+    const { name, value } = e.target;
+    setState({
+      ...input,
+      [name]: value,
     });
   };
 
-  productNameHandleChange = e => {
-    this.setState({
-      productName: e.target.value,
-    });
-  };
+  const [data, setData] = useState([
+    {
+      no: 1,
+      id: "첫번째 아이디",
+      productName: "제품1",
+      price: "10000",
+    },
+    {
+      no: 2,
+      id: "두번째 아이디",
+      productName: "제품2",
+      price: "10000",
+    },
+    {
+      no: 3,
+      id: "세번째 아이디",
+      productName: "제품3",
+      price: "10000",
+    },
+    {
+      no: 4,
+      id: "네번째 아이디",
+      productName: "제품4",
+      price: "10000",
+    },
+    {
+      no: 5,
+      id: "다섯번째 아이디",
+      productName: "제품5",
+      price: "10000",
+    },
+  ]);
 
-  priceHandleChange = e => {
-    this.setState({
-      price: e.target.value,
-    });
-  };
+  const nextNo = useRef(6);
 
-  handleCreate = () => {
-    const { id, productName, price, productData } = this.state;
-    this.setState({
+  const onCreate = () => {
+    const product = {
+      no: nextNo.current,
+      id,
+      productName,
+      price,
+    };
+    setData([...data, product]);
+    setState({
       id: "",
       productName: "",
       price: "",
-      productData: productData.concat({
-        no: this.no++,
-        id: id,
-        productName: productName,
-        price: price,
-      }),
     });
+    console.log(nextNo.current);
+    nextNo.current += 1;
   };
 
-  handleKeyPress = e => {
-    if (e.key === "Enter") {
-      this.handleCreate();
-    }
-  };
-
-  render() {
-    const { id, productName, price, productData } = this.state;
-    const {
-      IdHandleChange,
-      productNameHandleChange,
-      priceHandleChange,
-      handleCreate,
-      handleKeyPress,
-    } = this;
-    return (
-      <div className="poduct-name">
-        <ProductList productData={productData} />
-        <Form
-          productNameValue={productName}
-          idValue={id}
-          priceValue={price}
-          onKeyPress={handleKeyPress}
-          onChange={
-            (IdHandleChange, productNameHandleChange, priceHandleChange)
-          }
-          onCreate={handleCreate}
-        />
-      </div>
-    );
-  }
-}
+  return (
+    <>
+      <ProductList productData={productData} />
+      <Form
+        idValue={id}
+        productNamevalue={productName}
+        priceValue={price}
+        onChange={onChange}
+        onCreate={onCreate}
+      />
+    </>
+  );
+};
 
 export default ProductMain;

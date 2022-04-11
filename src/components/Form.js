@@ -19,18 +19,11 @@ const Form = ({
         id="product-name"
         value={productNamevalue}
         onChange={onChange}
-        onCreate={onCreate}
       />
       <label className="title" htmlFor="product-id">
         제품아이디
       </label>
-      <input
-        type="text"
-        id="product-id"
-        value={idValue}
-        onChange={onChange}
-        onCreate={onCreate}
-      />
+      <input type="text" id="product-id" value={idValue} onChange={onChange} />
       <label className="title" htmlFor="product-price">
         가격
       </label>
@@ -39,9 +32,8 @@ const Form = ({
         id="product-price"
         value={priceValue}
         onChange={onChange}
-        onCreate={onCreate}
       />
-      <div className="create-button" onClick={onKeyPress}>
+      <div className="create-button" onClick={onCreate}>
         추가
       </div>
     </div>
