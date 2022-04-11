@@ -68,7 +68,6 @@ const ProductMain = () => {
       productName: "",
       price: "",
     });
-    console.log(nextNo.current);
     nextNo.current += 1;
   };
 
