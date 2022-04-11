@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { useRef, useState } from "react";
 import ProductList from "./ProductList";
 import { productData } from "../Data";
 import Form from "../components/Form";
