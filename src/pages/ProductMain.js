@@ -4,63 +4,75 @@ import { productData } from "../Data";
 import Form from "../components/Form";
 
 class ProductMain extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      id: "",
-      productName: "",
-      price: "",
-      productList: productData,
-    };
-  }
-
   no = 6;
 
-  productNameChangeHandler = e => {
+  state = {
+    id: "",
+    productName: "",
+    price: "",
+    productData: productData,
+  };
+
+  IdHandleChange = e => {
     this.setState({
-      ...this.state,
+      id: e.target.value,
+    });
+  };
+
+  productNameHandleChange = e => {
+    this.setState({
       productName: e.target.value,
     });
   };
 
-  productIdChangeHandler = e => {
+  priceHandleChange = e => {
     this.setState({
-      ...this.state,
-      productId: e.target.value,
+      price: e.target.value,
     });
   };
 
-  productPriceChangeHandler = e => {
+  handleCreate = () => {
+    const { id, productName, price, productData } = this.state;
     this.setState({
-      ...this.state,
-      productPrice: e.target.value,
+      id: "",
+      productName: "",
+      price: "",
+      productData: productData.concat({
+        no: this.no++,
+        id: id,
+        productName: productName,
+        price: price,
+      }),
     });
   };
 
-  onAddHandler = () => {
-    const test = this.state;
-    const newArr = test.productList.concat({
-      no: test.productList.length + 1,
-      id: test.id,
-      productName: test.productName,
-      price: test.price,
-    });
-    this.setState({ productList: newArr });
+  handleKeyPress = e => {
+    if (e.key === "Enter") {
+      this.handleCreate();
+    }
   };
 
   render() {
+    const { id, productName, price, productData } = this.state;
+    const {
+      IdHandleChange,
+      productNameHandleChange,
+      priceHandleChange,
+      handleCreate,
+      handleKeyPress,
+    } = this;
     return (
       <div className="poduct-name">
-        <ProductList productList={this.state.productList} />
+        <ProductList productData={productData} />
         <Form
-          onProductNameChange={this.productNameChangeHandler}
-          onProductIdChange={this.productIdChangeHandler}
-          onProductPriceChange={this.productPriceChangeHandler}
-          newProductName={this.state.productName}
-          newProductId={this.state.productId}
-          newProductPrice={this.state.productPrice}
-          onAdd={this.onAddHandler}
+          productNameValue={productName}
+          idValue={id}
+          priceValue={price}
+          onKeyPress={handleKeyPress}
+          onChange={
+            (IdHandleChange, productNameHandleChange, priceHandleChange)
+          }
+          onCreate={handleCreate}
         />
       </div>
     );

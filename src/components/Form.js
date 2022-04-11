@@ -1,7 +1,14 @@
 import React from "react";
 import "./Form.css";
 
-const Form = ({ value, onChange, onCreate, onKeyPress }) => {
+const Form = ({
+  productNamevalue,
+  idValue,
+  priceValue,
+  onChange,
+  onCreate,
+  onKeyPress,
+}) => {
   return (
     <div className="form">
       <label className="title" htmlFor="product-name">
@@ -10,7 +17,7 @@ const Form = ({ value, onChange, onCreate, onKeyPress }) => {
       <input
         type="text"
         id="product-name"
-        value={value}
+        value={productNamevalue}
         onChange={onChange}
         onCreate={onCreate}
       />
@@ -20,7 +27,7 @@ const Form = ({ value, onChange, onCreate, onKeyPress }) => {
       <input
         type="text"
         id="product-id"
-        value={value}
+        value={idValue}
         onChange={onChange}
         onCreate={onCreate}
       />
@@ -30,7 +37,7 @@ const Form = ({ value, onChange, onCreate, onKeyPress }) => {
       <input
         type="text"
         id="product-price"
-        value={value}
+        value={priceValue}
         onChange={onChange}
         onCreate={onCreate}
       />
