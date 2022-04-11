@@ -1,4 +1,4 @@
-const productList = [
+const productData = [
   {
     no: 1,
     id: "첫번째 아이디",
@@ -32,11 +32,11 @@ const productList = [
 ];
 
 const getProductNo = no => {
-  const array = productList.filter(x => x.no == no);
+  const array = productData.filter(x => x.no == no);
   if (array.length == 1) {
     return array[0];
   }
   return null;
 };
 
-export { productList, getProductNo };
+export { productData, getProductNo };

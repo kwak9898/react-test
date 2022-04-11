@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ProductList from "./ProductList";
-import { productList } from "../Data";
+import { productData } from "../Data";
 import Form from "../components/Form";
 
 class ProductMain extends Component {
@@ -11,7 +11,7 @@ class ProductMain extends Component {
       id: "",
       productName: "",
       price: "",
-      productList: productList,
+      productList: productData,
     };
   }
 

@@ -11,8 +11,6 @@ const ProductView = ({ history, location, match }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(data);
-
   return (
     <>
       <h2 align="center">제품 상세정보</h2>

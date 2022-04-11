@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import CommonTable from "../components/CommonTable";
 import CommonTableColumn from "../components/CommonTableColumn";
 import CommonTableRow from "../components/CommonTableRow";
-import { productList } from "../Data";
+import { productData } from "../Data";
 
 const ProductList = props => {
   const [dataList, setDataList] = useState([]);
 
   useEffect(() => {
-    setDataList(productList);
+    setDataList(productData);
   }, []);
 
   return (
