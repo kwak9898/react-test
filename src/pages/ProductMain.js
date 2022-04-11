@@ -15,7 +15,7 @@ class ProductMain extends Component {
     };
   }
 
-  id = 6;
+  no = 6;
 
   productNameChangeHandler = e => {
     this.setState({
