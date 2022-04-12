@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { getProductNo } from "../Data";
+import { useParams, useNavigate } from "react-router-dom";
 import "./Product.css";
 
-const ProductView = ({ history, location, match }) => {
+export default function ProductView() {
   const [data, setData] = useState({});
-  const { no } = match.params;
+  let { no } = useParams();
+  let navigate = useNavigate();
 
   useEffect(() => {
     setData(getProductNo(no));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [no]);
 
   return (
     <>
@@ -39,13 +40,11 @@ const ProductView = ({ history, location, match }) => {
         )}
         <button
           className="product-view-go-list-btn"
-          onClick={() => history.goBack()}
+          onClick={() => navigate(-1)}
         >
           목록으로 돌아가기
         </button>
       </div>
     </>
   );
-};
-
-export default ProductView;
+}

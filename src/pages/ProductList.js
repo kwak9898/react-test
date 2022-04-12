@@ -15,8 +15,8 @@ const ProductList = props => {
   return (
     <>
       <CommonTable headersName={["제품번호", "제품명", "제품아이디", "가격"]}>
-        {dataList
-          ? dataList.map((item, no) => {
+        {props.productData
+          ? props.productData.map((item, no) => {
               return (
                 <CommonTableRow key={no}>
                   <CommonTableColumn>{item.no}</CommonTableColumn>

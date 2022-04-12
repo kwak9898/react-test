@@ -3,8 +3,8 @@ import ProductList from "./ProductList";
 import { productData } from "../Data";
 import Form from "../components/Form";
 
-const ProductMain = () => {
-  const [input, setState] = useState({
+export default function ProductMain() {
+  const [input, setInput] = useState({
     productName: "",
     id: "",
     price: "",
@@ -14,10 +14,10 @@ const ProductMain = () => {
 
   const onChange = e => {
     const { name, value } = e.target;
-    setState({
-      ...input,
+    setInput(prev => ({
+      ...prev,
       [name]: value,
-    });
+    }));
   };
 
   const [data, setData] = useState([
@@ -63,16 +63,17 @@ const ProductMain = () => {
       price,
     };
     setData([...data, product]);
-    setState({
+    setInput({
       id: "",
       productName: "",
       price: "",
     });
     nextNo.current += 1;
   };
+
   return (
     <>
-      <ProductList productData={productData} />
+      <ProductList productData={data} />
       <Form
         id={id}
         productName={productName}
@@ -82,6 +83,4 @@ const ProductMain = () => {
       />
     </>
   );
-};
-
-export default ProductMain;
+}
